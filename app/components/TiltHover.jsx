@@ -58,18 +58,17 @@ export default function TiltHover() {
       const cy = r.top + r.height / 2
       const dx = (e.clientX - cx) / (r.width / 2)
       const dy = (e.clientY - cy) / (r.height / 2)
-      const base = Math.min(r.width, r.height)
-      const maxTilt = 2.5
-      const ry = dx * maxTilt
-      const rx = -dy * maxTilt
-      const maxShift = Math.max(8, Math.round(base * 0.06))
-      let tx = dx * maxShift
-      let ty = dy * maxShift
+      const maxTilt = 2
+      const ry = -dx * maxTilt
+      const rx = dy * maxTilt
+      const maxShift = 6
+      let tx = (dx * maxShift)
+      let ty = (dy * maxShift)
 
       const outX = Math.max(r.left - e.clientX, 0, e.clientX - r.right)
       const outY = Math.max(r.top - e.clientY, 0, e.clientY - r.bottom)
       const dist = Math.hypot(outX, outY)
-      const threshold = 140
+      const threshold = 120
       const w = Math.max(0, 1 - dist / threshold)
       if (w <= 0) {
         t.removeAttribute('data-tilt')
@@ -85,17 +84,10 @@ export default function TiltHover() {
       const ryW = ry * w
       tx *= w
       ty *= w
-      const mag = Math.min(1, Math.hypot(dx, dy))
-      const scale = 1 + (0.015 + 0.055 * mag) * w
-      const ox = ((dx * 50) + 50).toFixed(2) + "%"
-      const oy = ((dy * 50) + 50).toFixed(2) + "%"
       t.style.setProperty("--tilt-rx", rxW.toFixed(2) + "deg")
       t.style.setProperty("--tilt-ry", ryW.toFixed(2) + "deg")
       t.style.setProperty("--tilt-tx", tx.toFixed(2) + "px")
       t.style.setProperty("--tilt-ty", ty.toFixed(2) + "px")
-      t.style.setProperty("--tilt-scale", scale.toFixed(3))
-      t.style.setProperty("--ox", ox)
-      t.style.setProperty("--oy", oy)
       t.setAttribute("data-tilt", "1")
     }
     const onMove = (e) => {

@@ -1,6 +1,44 @@
 import TiltHover from "./components/TiltHover";
 
 export default function Home() {
+  const projects = [
+    {
+      title: 'ChatPika',
+      description: "ChatPika is a sleek AI chat platform that enables real-time, intelligent conversations through a modern dark-mode interface. It features streaming replies, persistent chat sessions, and smooth performance across all devices. Built with cutting-edge technologies, ChatPika demonstrates seamless frontend–backend communication and a focus on user experience, showcasing the power of Next.js and AI-driven interactivity.",
+      image: '/images/1.png',
+      tags: ['NextJs', 'Node', 'MongoDb', 'Tailwind'],
+      source: 'https://github.com/pikacoder44/ChatPika',
+      visit: 'https://chat-pika.vercel.app/',
+      id: 0,
+    },
+    {
+      title: 'Logiksutra',
+      description: "Logiksutra is a full-stack book review platform that offers a clean, responsive interface for readers to explore, review, and share books. With secure authentication, efficient CRUD operations, and polished UI design, it ensures a seamless user experience across devices. The project highlights mastery in frontend–backend integration and scalable architecture, crafted to deliver performance and reliability.",
+      image: '/images/2.png',
+      tags: ['React','Node','Express','MongoDb'],
+      source: 'https://github.com/pikacoder44/LogiksutraAi---Submission',
+      visit: 'https://logiksutra-ai-submission.vercel.app/',
+      id: 1,
+    },
+    {
+      title: 'AI Summarizer',
+      description: "AI Summarizer is an intelligent text summarization app powered by advanced NLP models and OpenAI APIs. It efficiently condenses lengthy text into clear and concise summaries, helping users extract key insights in seconds. With its fast performance, clean UI, and responsive design, it demonstrates the integration of AI automation with practical, user-friendly web development.",
+      image: '/images/3.png',
+      tags: ['React','TailwindCss', 'Rapid Api','Open Ai'],
+      source: 'https://github.com/AliyanA1/Ai-summerizer-',
+      visit: 'https://smartsummarize-rho.vercel.app/',
+      id: 2,
+    },
+    {
+      title: 'Recipe Finder',
+      description: "Recipe Finder is a modern recipe discovery app that lets users search and explore meals with detailed cooking steps. Built with a responsive layout and clean visuals, it ensures smooth navigation and accessibility on all devices. The project reflects a focus on simplicity, design consistency, and user engagement while leveraging APIs to deliver dynamic, data-driven results.",
+      image: '/images/5.png',
+      tags: ['React', 'MealDB API', 'Tailwind CSS', 'Vite'],
+      source: 'https://github.com/AliyanA1/Recipe-Finder',
+      visit: 'https://recipe-finder-xi-seven.vercel.app/',
+      id: 4,
+    },
+  ]
   return (
     <main className="font-sans min-h-screen">
       <TiltHover />
@@ -18,7 +56,7 @@ export default function Home() {
                   Fluxera is a boutique freelance studio building elevated products and brand sites with modern tech, motion, and meticulous design. I partner with teams to ship work that feels premium and performs.
                 </p>
                 <div className="mt-8 flex flex-wrap items-center gap-3">
-                  <a href="#projects" className="glass accent-ring inline-flex items-center gap-2 rounded-lg px-5 py-3 text-sm font-medium hover:opacity-90 transition">
+                  <a href="#projects" className="inline-flex items-center gap-2 rounded-lg px-5 py-3 text-sm font-medium border border-foreground/15 hover:bg-foreground/5 transition">
                     <span>View Projects</span>
                   </a>
                   <a href="#socials" className="inline-flex items-center gap-2 rounded-lg px-5 py-3 text-sm font-medium border border-foreground/15 hover:bg-foreground/5 transition">
@@ -61,58 +99,36 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex items-end justify-between gap-4">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-semibold">Selected Work</h2>
+              <h2 className="text-2xl sm:text-3xl font-semibold">Projects</h2>
               <p className="text-sm text-foreground/60 mt-1">A snapshot of recent builds and experiments.</p>
             </div>
             <a href="#socials" className="text-sm underline underline-offset-4 hover:opacity-80">Work with Fluxera</a>
           </div>
           <div className="mt-8 grid grid-cols-1 md:grid-cols-12 gap-5">
-            {/* Featured card */}
-            <article className="relative md:col-span-7 rounded-2xl overflow-hidden glass">
-              <div className="h-48 sm:h-64 w-full bg-gradient-to-br from-indigo-500/30 via-fuchsia-500/25 to-emerald-500/25" />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold">Neon Commerce</h3>
-                <p className="mt-2 text-sm text-foreground/70">Headless ecommerce storefront with animated product galleries and frictionless checkout.</p>
-                <div className="mt-4 flex flex-wrap gap-2 text-xs text-foreground/60">
-                  <span className="rounded border border-foreground/15 px-2 py-1">Next.js</span>
-                  <span className="rounded border border-foreground/15 px-2 py-1">Tailwind</span>
-                  <span className="rounded border border-foreground/15 px-2 py-1">Stripe</span>
+            {projects.map((p) => (
+              <article key={p.id} className="relative md:col-span-6 rounded-2xl overflow-hidden glass group">
+                <div className="relative h-40 sm:h-48 w-full overflow-hidden">
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                  />
                 </div>
-              </div>
-            </article>
-
-            {/* Two stacked secondary cards */}
-            <div className="md:col-span-5 flex flex-col gap-5">
-              <article className="glass rounded-2xl overflow-hidden">
-                <div className="h-28 w-full bg-gradient-to-br from-emerald-500/25 via-teal-500/20 to-cyan-500/20" />
                 <div className="p-6">
-                  <h3 className="text-lg font-semibold">Pulse Analytics</h3>
-                  <p className="mt-2 text-sm text-foreground/70">SaaS dashboard with realtime charts and role-based access.</p>
+                  <h3 className="text-xl font-semibold">{p.title}</h3>
+                  <p className="mt-2 text-sm text-foreground/70">{p.description}</p>
+                  <div className="mt-4 flex flex-wrap gap-2 text-xs text-foreground/60">
+                    {p.tags.map((t) => (
+                      <span key={t} className="rounded border border-foreground/15 px-2 py-1">{t}</span>
+                    ))}
+                  </div>
+                  <div className="mt-4 flex gap-3 text-sm">
+                    <a href={p.visit} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-lg px-3 py-2 border border-foreground/15 hover:bg-foreground/5 transition">Live</a>
+                    <a href={p.source} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-lg px-3 py-2 border border-foreground/15 hover:bg-foreground/5 transition">Source</a>
+                  </div>
                 </div>
               </article>
-              <article className="glass rounded-2xl overflow-hidden">
-                <div className="h-28 w-full bg-gradient-to-br from-fuchsia-500/25 via-pink-500/20 to-rose-500/20" />
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold">Spectra Studio</h3>
-                  <p className="mt-2 text-sm text-foreground/70">Motion-rich agency site with immersive case pages.</p>
-                </div>
-              </article>
-            </div>
-
-            {/* Wide utility card */}
-            <article className="md:col-span-12 glass rounded-2xl overflow-hidden">
-              <div className="h-28 w-full bg-gradient-to-r from-indigo-500/20 via-purple-500/20 to-emerald-500/20" />
-              <div className="p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                <div>
-                  <h3 className="text-lg font-semibold">Aurora Docs</h3>
-                  <p className="mt-2 text-sm text-foreground/70">Polished documentation theme with MDX, search, and multi-brand theming.</p>
-                </div>
-                <div className="flex gap-3 text-sm">
-                  <a className="rounded-lg border border-foreground/15 px-3 py-2 hover:bg-foreground/5 transition" href="#">Case study</a>
-                  <a className="rounded-lg border border-foreground/15 px-3 py-2 hover:bg-foreground/5 transition" href="#">Live demo</a>
-                </div>
-              </div>
-            </article>
+            ))}
           </div>
         </div>
       </section>
