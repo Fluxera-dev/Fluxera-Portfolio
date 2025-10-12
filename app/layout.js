@@ -19,8 +19,15 @@ const display = Space_Grotesk({
 });
 
 export const metadata = {
-  title: "Fluxera — Portfolio",
-  description: "Fluxera: premium freelance studio delivering futuristic, high-impact digital products.",
+  title: "Fluxera.dev",
+  description: "Fluxera: Premium freelance studio delivering futuristic, high-impact digital products.",
+  icons: {
+    icon: "/F-Logo.ico",
+    shortcut: "/F-Logo.ico",
+    apple: "/F-Logo.ico",
+    appleStartup: "/F-Logo.ico",
+    favicon: "/F-Logo.ico",
+  },
 };
 
 export default function RootLayout({ children }) {
