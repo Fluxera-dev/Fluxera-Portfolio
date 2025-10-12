@@ -8,10 +8,7 @@ const Navbar = () => {
         href="/" 
         className="group flex items-center gap-3 text-xl font-bold tracking-tight hover:scale-105 transition-transform duration-300"
       >
-        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-          <span className="text-white font-bold text-sm">F</span>
-        </div>
-        <span className="accent-text">FLUXERA</span>
+        <img src="/Fluxera-navbar.png" alt="Fluxera" className="h-8 w-auto" />
       </a>
 
       {/* Navigation Links */}
