@@ -1,5 +1,5 @@
 import React from "react";
-
+import Image from "next/image";
 const Footer = () => {
   return (
     <footer className="bg-surface border-t border-border mt-20">
@@ -8,15 +8,22 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Logo & Description */}
           <div className="lg:col-span-2">
-            <a 
-              href="/" 
-              className="group flex items-center gap-3 text-xl font-bold tracking-tight hover:scale-105 transition-transform duration-300 mb-4"
+            <a
+              href="/"
+              className="group flex items-center gap-3 text-xl font-bold tracking-tight mb-4"
             >
-              <img src="/Fluxera-navbar.png" alt="Fluxera" className="h-8 w-auto" />
+              <Image
+                src="/Fluxera-navbar.png"
+                alt="Fluxera"
+                width={100}
+                height={100}
+                className="h-8 w-auto"
+              />
             </a>
             <p className="text-foreground-secondary text-sm leading-relaxed max-w-md mb-6">
-              Crafting exceptional digital experiences through innovative web development, 
-              creative design, and cutting-edge technology solutions.
+              Crafting exceptional digital experiences through innovative web
+              development, creative design, and cutting-edge technology
+              solutions.
             </p>
             {/* Social Links */}
             <div className="flex items-center gap-3">
@@ -48,7 +55,12 @@ const Footer = () => {
                   stroke="currentColor"
                   className="h-5 w-5 text-foreground-secondary group-hover:text-foreground group-hover:scale-110 transition-all duration-300"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
                 </svg>
               </a>
               <a

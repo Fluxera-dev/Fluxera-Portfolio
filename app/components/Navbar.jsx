@@ -1,14 +1,20 @@
 import React from "react";
-
+import Image from "next/image";
 const Navbar = () => {
   return (
     <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
       {/* Logo */}
-      <a 
-        href="/" 
+      <a
+        href="/"
         className="group flex items-center gap-3 text-xl font-bold tracking-tight hover:scale-105 transition-transform duration-300"
       >
-        <img src="/Fluxera-navbar.png" alt="Fluxera" className="h-8 w-auto" />
+        <Image
+          src="/Fluxera-navbar.png"
+          alt="Fluxera"
+          width={100}
+          height={100}
+          className="h-8 w-auto"
+        />
       </a>
 
       {/* Navigation Links */}
@@ -67,11 +73,16 @@ const Navbar = () => {
               stroke="currentColor"
               className="h-4 w-4 text-foreground-secondary group-hover:text-foreground group-hover:scale-110 transition-all duration-300"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              />
             </svg>
           </a>
         </div>
-        
+
         <a
           href="#contact"
           className="btn-primary text-sm px-4 py-2 text-white no-underline"
