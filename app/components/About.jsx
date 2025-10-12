@@ -22,7 +22,7 @@ const About = () => {
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {/* Full Stack Developer */}
-            <div className="bg-background border border-border rounded-2xl p-8 hover:border-border-hover transition-all duration-300 group">
+            <div className="bg-background border border-border rounded-2xl p-8 hover:border-border-hover hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 group cursor-pointer">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center">
                     <svg
@@ -52,7 +52,7 @@ const About = () => {
                     href="https://github.com/pikacoder44"
                     target="_blank"
                     rel="noreferrer"
-                    className="p-2 rounded-lg bg-surface-hover border border-border hover:border-border-hover transition-all duration-300 group"
+                    className="p-2 rounded-lg bg-surface-hover border border-border hover:border-border-hover hover:bg-background hover:scale-110 transition-all duration-500 group"
                     aria-label="Hashir Shah GitHub"
                   >
                     <svg
@@ -74,7 +74,7 @@ const About = () => {
             </div>
 
             {/* Backend Developer */}
-            <div className="bg-background border border-border rounded-2xl p-8 hover:border-border-hover transition-all duration-300 group">
+            <div className="bg-background border border-border rounded-2xl p-8 hover:border-border-hover hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 group cursor-pointer">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
                     <svg
@@ -104,7 +104,7 @@ const About = () => {
                     href="https://github.com/AliyanA1"
                     target="_blank"
                     rel="noreferrer"
-                    className="p-2 rounded-lg bg-surface-hover border border-border hover:border-border-hover transition-all duration-300 group"
+                    className="p-2 rounded-lg bg-surface-hover border border-border hover:border-border-hover hover:bg-background hover:scale-110 transition-all duration-500 group"
                     aria-label="Aliyan Mujahid GitHub"
                   >
                     <svg
@@ -145,7 +145,7 @@ const About = () => {
             ].map((tech) => (
               <span
                 key={tech}
-                className="px-4 py-2 bg-surface border border-border rounded-lg text-sm text-foreground-secondary hover:border-border-hover hover:text-foreground transition-all duration-300"
+                className="px-4 py-2 bg-surface border border-border rounded-lg text-sm text-foreground-secondary hover:border-blue-400 hover:text-blue-300 hover:bg-blue-500/10 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-500 cursor-pointer"
               >
                 {tech}
               </span>

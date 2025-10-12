@@ -52,8 +52,8 @@ const Footer = () => {
                 </svg>
               </a>
               <a
-                aria-label="LinkedIn"
-                href="#"
+                aria-label="Upwork"
+                href="https://www.upwork.com/freelancers/~01a175be1e3541464b"
                 target="_blank"
                 rel="noreferrer"
                 className="p-2 rounded-lg bg-surface-hover border border-border hover:border-border-hover hover:bg-background transition-all duration-300 group"
@@ -64,7 +64,7 @@ const Footer = () => {
                   fill="currentColor"
                   className="h-5 w-5 text-foreground-secondary group-hover:text-foreground group-hover:scale-110 transition-all duration-300"
                 >
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  <path d="M18.5 7.5a3.5 3.5 0 0 0-3.36 2.48 17.8 17.8 0 0 1-1.02-1.9l-.82-1.88h-2.1v4.39a2.7 2.7 0 1 1-5.4 0V6.2H3.5v3.89a5.2 5.2 0 1 0 10.4.12l.44 1.01c.83 1.9 2.33 3.28 4.16 3.28A3.5 3.5 0 1 0 18.5 7.5Zm0 5.1c-.86 0-1.6-.77-2.18-1.9a2.3 2.3 0 1 1 2.18 1.9Z" />
                 </svg>
               </a>
             </div>
