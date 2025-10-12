@@ -147,7 +147,7 @@ h1, h2, h3 {
              rotateX(var(--tilt-rx, 0deg))
              rotateY(var(--tilt-ry, 0deg))
              translate3d(var(--tilt-tx, 0px), var(--tilt-ty, 0px), 0)
-             scale(1.01);
+             scale(var(--tilt-scale, 1.01));
 }
 
 .glass::after {
