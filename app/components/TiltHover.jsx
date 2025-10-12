@@ -4,6 +4,7 @@ import { useEffect } from "react"
 export default function TiltHover() {
   useEffect(() => {
     const els = Array.from(document.querySelectorAll('.glass'))
+    let activeEl = null
     const getTarget = (ev) => {
       if (ev.target && ev.target.closest) {
         const direct = ev.target.closest('.glass')
@@ -31,7 +32,27 @@ export default function TiltHover() {
       ticking = false
       const e = lastEv
       const t = getTarget(e)
-      if (!t) return
+      if (!t) {
+        if (activeEl) {
+          activeEl.removeAttribute('data-tilt')
+          activeEl.style.removeProperty('--tilt-rx')
+          activeEl.style.removeProperty('--tilt-ry')
+          activeEl.style.removeProperty('--tilt-tx')
+          activeEl.style.removeProperty('--tilt-ty')
+          activeEl = null
+        }
+        return
+      }
+
+      if (activeEl && activeEl !== t) {
+        activeEl.removeAttribute('data-tilt')
+        activeEl.style.removeProperty('--tilt-rx')
+        activeEl.style.removeProperty('--tilt-ry')
+        activeEl.style.removeProperty('--tilt-tx')
+        activeEl.style.removeProperty('--tilt-ty')
+      }
+
+      activeEl = t
       const r = t.getBoundingClientRect()
       const cx = r.left + r.width / 2
       const cy = r.top + r.height / 2
@@ -41,10 +62,30 @@ export default function TiltHover() {
       const ry = dx * maxTilt
       const rx = -dy * maxTilt
       const maxShift = 10
-      const tx = (dx * maxShift)
-      const ty = (dy * maxShift)
-      t.style.setProperty("--tilt-rx", rx.toFixed(2) + "deg")
-      t.style.setProperty("--tilt-ry", ry.toFixed(2) + "deg")
+      let tx = (dx * maxShift)
+      let ty = (dy * maxShift)
+
+      const outX = Math.max(r.left - e.clientX, 0, e.clientX - r.right)
+      const outY = Math.max(r.top - e.clientY, 0, e.clientY - r.bottom)
+      const dist = Math.hypot(outX, outY)
+      const threshold = 120
+      const w = Math.max(0, 1 - dist / threshold)
+      if (w <= 0) {
+        t.removeAttribute('data-tilt')
+        t.style.removeProperty('--tilt-rx')
+        t.style.removeProperty('--tilt-ry')
+        t.style.removeProperty('--tilt-tx')
+        t.style.removeProperty('--tilt-ty')
+        activeEl = null
+        return
+      }
+
+      const rxW = rx * w
+      const ryW = ry * w
+      tx *= w
+      ty *= w
+      t.style.setProperty("--tilt-rx", rxW.toFixed(2) + "deg")
+      t.style.setProperty("--tilt-ry", ryW.toFixed(2) + "deg")
       t.style.setProperty("--tilt-tx", tx.toFixed(2) + "px")
       t.style.setProperty("--tilt-ty", ty.toFixed(2) + "px")
       t.setAttribute("data-tilt", "1")
@@ -58,16 +99,21 @@ export default function TiltHover() {
     }
     const onEnter = (e) => {
       const t = getTarget(e)
-      if (t) t.setAttribute("data-tilt", "1")
+      if (t) {
+        activeEl = t
+        t.setAttribute('data-tilt', '1')
+      }
     }
     const onLeave = (e) => {
       const t = getTarget(e)
-      if (!t) return
-      t.removeAttribute("data-tilt")
-      t.style.removeProperty("--tilt-rx")
-      t.style.removeProperty("--tilt-ry")
-      t.style.removeProperty("--tilt-tx")
-      t.style.removeProperty("--tilt-ty")
+      const el = t || activeEl
+      if (!el) return
+      el.removeAttribute('data-tilt')
+      el.style.removeProperty('--tilt-rx')
+      el.style.removeProperty('--tilt-ry')
+      el.style.removeProperty('--tilt-tx')
+      el.style.removeProperty('--tilt-ty')
+      if (el === activeEl) activeEl = null
     }
     document.addEventListener("pointermove", onMove, { passive: true })
     document.addEventListener("pointerenter", onEnter, true)
