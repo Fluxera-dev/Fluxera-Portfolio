@@ -1,6 +1,9 @@
+import TiltHover from "./components/TiltHover";
+
 export default function Home() {
   return (
     <main className="font-sans min-h-screen">
+      <TiltHover />
       <section className="relative pt-24 pb-16 sm:pt-28 sm:pb-20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="glass rounded-2xl p-6 sm:p-8">

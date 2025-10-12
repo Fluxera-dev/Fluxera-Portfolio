@@ -46,6 +46,12 @@ h1, h2, h3 {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255,255,255,0.08);
+  position: relative;
+  overflow: hidden;
+  transition: transform 140ms ease-in-out, box-shadow 140ms ease-in-out, border-color 140ms ease-in-out, background 140ms ease-in-out, filter 140ms ease-in-out, -webkit-backdrop-filter 140ms ease-in-out, backdrop-filter 140ms ease-in-out;
+  isolation: isolate;
+  transform: perspective(900px) rotateX(0deg) rotateY(0deg) translateZ(0);
+  will-change: transform;
 }
 
 /* Static premium vignette background (no animation) */
@@ -75,4 +81,83 @@ h1, h2, h3 {
 
 .accent-bg {
   background: linear-gradient(180deg, rgba(33,206,234,0.12), rgba(33,206,234,0.06));
+}
+.glass::before {
+  content: "";
+  position: absolute;
+  left: var(--mxp, -9999px);
+  top: var(--myp, -9999px);
+  width: var(--streak-len, 320px);
+  height: calc(var(--streak-thick, 14px) * 2.2);
+  transform: translate(-50%, -50%) rotate(var(--angp, 0deg));
+  background:
+    radial-gradient(closest-side,
+      rgba(255,255,255,0.45) 0%,
+      rgba(255,255,255,0.22) 35%,
+      rgba(255,255,255,0.08) 65%,
+      rgba(255,255,255,0) 75%
+    );
+  filter: blur(10px) saturate(115%);
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  transition: opacity 0.18s ease;
+  border-radius: 999px;
+}
+
+.glass:hover::before {
+  opacity: 0;
+}
+
+.glass:hover {
+  border-color: rgba(255,255,255,0.18);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px) saturate(110%) brightness(1.05);
+  -webkit-backdrop-filter: blur(10px) saturate(110%) brightness(1.05);
+  transform: perspective(900px)
+             rotateX(var(--tilt-rx, -2deg))
+             rotateY(var(--tilt-ry, 2deg))
+             translate3d(var(--tilt-tx, 0px), var(--tilt-ty, 0px), 0)
+             scale(1.01);
+}
+
+.glass[data-tilt="1"] {
+  transition: transform 0ms linear, box-shadow 120ms ease-in-out, border-color 120ms ease-in-out, background 120ms ease-in-out, filter 120ms ease-in-out, -webkit-backdrop-filter 120ms ease-in-out, backdrop-filter 120ms ease-in-out;
+  transform: perspective(900px)
+             rotateX(var(--tilt-rx, 0deg))
+             rotateY(var(--tilt-ry, 0deg))
+             translate3d(var(--tilt-tx, 0px), var(--tilt-ty, 0px), 0)
+             scale(1.01);
+}
+
+.glass::after {
+  content: "";
+  position: absolute;
+  left: var(--mxp, 50%);
+  top: var(--myp, 50%);
+  width: clamp(30px, var(--streak-len, 60px), 80px);
+  height: 2px;
+  transform: translate(-50%, -50%) rotate(var(--ang, 0deg));
+  background: linear-gradient(90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.25) 49%,
+    rgba(255,255,255,0.95) 50%,
+    rgba(255,255,255,0.25) 51%,
+    rgba(255,255,255,0) 100%
+  );
+  filter: blur(0.5px) saturate(130%);
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: normal;
+  border-radius: 999px;
+  transition: opacity 0.12s ease;
+  z-index: 2;
+}
+
+.glass:hover::after {
+  opacity: 0;
+}
+
+.glass[data-glow="1"]::after {
+  opacity: 0;
 }
