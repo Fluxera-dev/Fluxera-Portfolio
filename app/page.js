@@ -47,7 +47,7 @@ export default function Home() {
       title: "Govt Voting App",
       description:
         "Govt Voting App is a modern voting platform that allows users to vote for their preferred candidates in a secure and efficient manner. It features a responsive design, user-friendly interface, and real-time voting results. The project highlights expertise in frontend–backend integration and scalable architecture, delivering a seamless user experience and reliable performance.",
-      image: "/images/6.png",
+      image: "/images/6.PNG",
       tags: ["NextJs", "Node", "ExpressJS", "MongoDb", "JWT"],
       source: "https://github.com/pikacoder44/Voting-App-MERN-stack ",
       visit: "https://voting-frontend-silk.vercel.app/",
