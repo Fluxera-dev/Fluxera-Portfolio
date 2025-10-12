@@ -39,7 +39,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} ${display.variable} antialiased`}
       >
         <div className="aurora" aria-hidden="true" />
-        <header className="sticky top-0 z-50 border-b border-foreground/10 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <header className="sticky top-0 z-50 border-b border-border backdrop-blur-xl bg-background/80 supports-[backdrop-filter]:bg-background/60">
           <Navbar />
         </header>
         {children}
