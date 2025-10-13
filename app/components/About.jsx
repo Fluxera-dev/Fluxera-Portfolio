@@ -135,9 +135,10 @@ const About = () => {
           <div className="flex flex-wrap justify-center gap-4">
             {[
               "React",
-              "Next.js",
-              "Node.js",
-              "Express.js",
+              "NextJs",
+              "NodeJs",
+              "ExpressJs",
+              "NestJs",
               "TypeScript",
               "MongoDB",
               "Docker",
