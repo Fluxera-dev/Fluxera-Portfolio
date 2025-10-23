@@ -14,13 +14,14 @@ export default function Home() {
       id: 0,
     },
     {
-      title: "Logiksutra",
+      title: "InkSpire",
       description:
-        "Logiksutra is a full-stack book review platform that offers a clean, responsive interface for readers to explore, review, and share books. With secure authentication, efficient CRUD operations, and polished UI design, it ensures a seamless user experience across devices. The project highlights mastery in frontend–backend integration and scalable architecture, crafted to deliver performance and reliability.",
+        "InkSpire is a full-stack book review platform that offers a clean, responsive interface for readers to explore, review, and share books. With secure authentication, efficient CRUD operations, and polished UI design, it ensures a seamless user experience across devices. The project highlights mastery in frontend–backend integration and scalable architecture, crafted to deliver performance and reliability.",
       image: "/images/2.png",
       tags: ["React", "Node", "Express", "MongoDb"],
-      source: "https://github.com/pikacoder44/LogiksutraAi---Submission",
-      visit: "https://logiksutra-ai-submission.vercel.app/",
+      source: "https://github.com/pikacoder44/Inkspire---Book-Review-Platform",
+      visit:
+        "https://inkspire-book-review-platform-2mcb0jzjk-pika-ops-projects.vercel.app/",
       id: 1,
     },
     {
